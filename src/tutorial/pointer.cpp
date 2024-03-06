@@ -49,3 +49,37 @@ void tutorial::pointer() {
 
 
 }
+
+void increment(int& value) {
+    // value is passed as reference
+    // outside of this function the value is updated as well
+    value++;
+}
+
+void increment(int* value) {
+    // same behaviour is achieved with pointer and dereferencing
+    (*value)++;
+}
+
+void tutorial::reference() {
+
+    int a = 5;
+    // created a alias/refernece to a
+    // basicly just syntax sugar for pointers and dereferencing
+    // you can not change the reference to anothe variable
+    int& refA = a;
+
+    refA = 2;
+
+    // a is changed to 2
+    log(a);
+
+    increment(a);
+    // a is now 3
+    log(a);
+
+    increment(&a);
+    // a is now 4
+    log(a);
+
+}
